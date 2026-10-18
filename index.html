@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="FreshCut Studio barbershop website concept.">
+  <title>FreshCut Studio | Barber Shop</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: #151515;
+      --card: #1d1d1d;
+      --gold: #d7b779;
+      --text: #f8f5ed;
+      --muted: #c7c2b8;
+      --border: #393939;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 7%;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    header nav a {
+      transition: color 0.2s ease;
+    }
+
+    header nav a:hover {
+      color: var(--gold);
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      min-height: 520px;
+      padding: 80px 7%;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("barbershop.jpg") center / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .tag {
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 9vw, 68px);
+      line-height: 1.08;
+      margin: 22px 0;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: white;
+      font-size: 18px;
+      max-width: 450px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: #151515;
+      padding: 14px 24px;
+      margin-top: 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      background: #e7ca8d;
+      transform: translateY(-2px);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 60px 7%;
+      scroll-margin-top: 20px;
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 8px 0 30px;
+      line-height: 1.2;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      color: var(--gold);
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .service h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    /* PRICE SECTION */
+
+    .prices {
+      /*background:
+        radial-gradient(ellipse at top, #29251d 0%, #151515 65%);*/
+    }
+
+    .price-panel {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px;
+      background: #1b1b1b;
+      border: 1px solid #49402e;
+      border-radius: 14px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .price-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-heading h2 {
+      margin: 0;
+    }
+
+    .currency {
+      color: var(--gold);
+      border: 1px solid #665537;
+      border-radius: 30px;
+      padding: 5px 12px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .price-intro {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 16px 0 8px;
+    }
+
+    .price-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .price-item:last-child {
+      border-bottom: none;
+    }
+
+    .price-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .price-description {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: normal;
+      margin-top: 3px;
+    }
+
+    .price-value {
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .price-footer {
+      background: #29251d;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .price-footer i {
+      color: var(--gold);
+      margin-right: 8px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: #24221d;
+    }
+
+    .contact p {
+      color: var(--muted);
+    }
+
+    .contact .button {
+      margin-top: 8px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 24px 7%;
+      color: #aaa;
+      font-size: 13px;
+      border-top: 1px solid #333;
+    }
+
+    /* FLOATING CONTACT BUTTONS */
+
+    #call,
+    #whatsapp {
+      position: fixed;
+      right: 18px;
+      z-index: 1000;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    #call {
+      bottom: 96px;
+    }
+
+    #whatsapp {
+      bottom: 28px;
+    }
+
+    #call:hover,
+    #whatsapp:hover {
+      transform: scale(1.08);
+      background: #e7ca8d;
+    }
+
+    #call:focus-visible,
+    #whatsapp:focus-visible,
+    a:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 4px;
+    }
+
+    /* MOBILE LAYOUT */
+
+    @media (max-width: 700px) {
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 500px;
+        padding-top: 65px;
+        padding-bottom: 65px;
+      }
+
+      section {
+        padding-top: 45px;
+        padding-bottom: 45px;
+      }
+
+      .price-panel {
+        padding: 20px;
+      }
+
+      .price-item {
+        padding: 18px 0;
+      }
+
+      .price-value {
+        font-size: 18px;
+      }
+
+      #call,
+      #whatsapp {
+        right: 16px;
+        width: 50px;
+        height: 50px;
+      }
+
+      #call {
+        bottom: 88px;
+      }
+
+      #whatsapp {
+        bottom: 24px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .price-panel {
+        padding: 15px;
+      }
+
+      .price-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .price-description {
+        max-width: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <a href="#" class="logo">FRESHCUT<span>.</span></a>
+    <nav>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="tag">Your style, your confidence</div>
+
+        <h1>
+          LOOK SHARP.<br>
+          <span>FEEL GOOD.</span>
+        </h1>
+
+        <p>
+          A fresh look starts with the right cut.
+          Discover your style at FreshCut Studio.
+        </p>
+
+        <a class="button" href="#services">
+          Explore our services
+        </a>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+
+    <section id="services">
+      <div class="section-label">What we offer</div>
+      <h2>Our Services</h2>
+
+      <div class="services">
+
+        <article class="service">
+          <div class="service-icon">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <h3>Classic Haircut</h3>
+          <p>
+            A clean, timeless look for everyday confidence.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="service-icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h3>Fade &amp; Style</h3>
+          <p>
+            A modern cut tailored to your preferred style.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="service-icon">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <h3>Beard Grooming</h3>
+          <p>
+            Neat detailing for a well-groomed finish.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PRICE LIST -->
+
+    <section class="prices" id="prices">
+      <div class="price-panel">
+
+        <div class="section-label">Simple. Stylish. Fresh.</div>
+
+        <div class="price-heading">
+          <h2>Our Price List</h2>
+          <span class="currency">PRICES IN CEDIS</span>
+        </div>
+
+        <p class="price-intro">
+          Find the right cut for your style.
+        </p>
+
+        <ul class="price-list">
+
+          <li class="price-item">
+            <div>
+              <span class="price-name">Buzz Cut</span>
+              <span class="price-description">
+                Clean and simple
+              </span>
+            </div>
+            <span class="price-value">¢30</span>
+          </li>
+
+          <li class="price-item">
+            <div>
+              <span class="price-name">Taper</span>
+              <span class="price-description">
+                Sharp, blended finish
+              </span>
+            </div>
+            <span class="price-value">¢25</span>
+          </li>
+
+          <li class="price-item">
+            <div>
+              <span class="price-name">Undercut</span>
+              <span class="price-description">
+                A bold, modern look
+              </span>
+            </div>
+            <span class="price-value">¢20</span>
+          </li>
+
+        </ul>
+
+        <div class="price-footer">
+          <i class="fa-solid fa-circle-info"></i>
+          Contact us to ask about other styles and services.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+      <div class="section-label">Come through</div>
+      <h2>Ready for a fresh cut?</h2>
+
+      <p>
+        Contact us to ask about services and appointments.
+      </p>
+
+      <!-- Add the real, authorised business location here. -->
+      <p>Location: Add the business location</p>
+
+      <a class="button" href="tel:0593798620">
+        <i class="fa-solid fa-phone"></i>
+        Call us
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    FreshCut Studio — fictional website concept.
+    <br>
+    Created as a web development portfolio project.
+    <br>
+    &copy; Baanbil Godfred
+  </footer>
+
+  <!-- FLOATING CONTACT BUTTONS -->
+
+  <a
+    id="call"
+    href="tel:0593798620"
+    aria-label="Call FreshCut Studio"
+  >
+    <i class="fa-solid fa-phone"></i>
+  </a>
+
+  <a
+    id="whatsapp"
+    href="https://wa.me/233546202895"
+    aria-label="Chat with FreshCut Studio on WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>
